@@ -39,7 +39,6 @@ class Path {
 	 */
 
 	public Cell NextCell(Cell cell) {
-		System.out.println("\t>NextCell(Cell cell): Asks Path for the cell after the given one.");
 		int index = 0;
 		for (Cell localCell : cells) {
 			index++;
@@ -47,11 +46,7 @@ class Path {
 				break;
 		}
 
-		System.out.println("\t<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)");
-
-
-
-		if (index < cells.length)
+	if (index < cells.length)
 			return cells[index];
 		return null;
 	}
@@ -83,8 +78,6 @@ class Path {
 	 */
 	public void UpdatePresence(int length, Cell current) {
 
-		System.out.println(
-				">>UpdatePresence(int carLength, Cell frontOfTheCar): Changes status of the cells around the car.");
 		// TODO implement here
 		// finish this!!
 

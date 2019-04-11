@@ -43,7 +43,6 @@ class SelectorPath extends Path {
 	 * This method chooses the path out of the fork.
 	 */
 	public void SelectNextExit() {
-		System.out.println("\t>>SelectNextExit(): Selects the next exit of the path.");
 		selectedIndex = (1 + selectedIndex) % exits.length;
 	}
 
@@ -54,16 +53,13 @@ class SelectorPath extends Path {
 
 	@Override
 	public Cell NextCell(Cell cell) {
-		System.out.println("\t>NextCell(Cell cell): Asks Path for the cell after the given one.");
 		int index = 0;
 		for (Cell localCell : cells) {
 			index++;
 			if (localCell == cell)
 				break;
 		}
-		System.out.println(
-				"\t<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)");
-		if (index < cells.length)
+				if (index < cells.length)
 			return cells[index];
 		if (index == cells.length)
 			return exits[selectedIndex];

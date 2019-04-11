@@ -36,8 +36,6 @@ abstract class LevelContainer {
 	 * empty, the game is lost and the level is restarted.
 	 */
 	public static void FinalReport(Car car) {
-		System.out.print(
-				"FinalReport(Car car): reports to the station that the train has let all possible passengers disembark at the final station.\n");
 		if (car.IsEmpty())
 			Victory();
 		else
@@ -59,10 +57,8 @@ abstract class LevelContainer {
 				segment1.ConnectTo(end1ID, end2);
 				segment2.ConnectTo(end2ID, end1);
 			} else {
-				System.out.println("Cannot Connect!");
 			}
 		} else {
-			System.out.println("No such segments (one or both are missing)!");
 		}
 
 	}
@@ -72,9 +68,7 @@ abstract class LevelContainer {
 	 * Segment. If the segment does not exist, returns null.
 	 */
 	public static Segment FindSegment(String sgmID) {
-		System.out.println("FindSegment(string id): Looks for a segment with the same id.");
 		Segment ret = level.FindSegment(sgmID);
-		System.out.println("FindSegment(string id): reference to the first entrance(null if does not exist.)");
 		return ret;
 	}
 
@@ -83,8 +77,7 @@ abstract class LevelContainer {
 	 * tunnel between two points.
 	 */
 	public static boolean IsEntranceSelected() {
-		System.out.println(">IsEntranceSelected(): Checks if another entrance is selected.");
-		System.out.println("<IsEntranceSelected(): Returns a boolean value. In this case it’s false.");
+	
 		return selected != null;
 	}
 
@@ -93,10 +86,7 @@ abstract class LevelContainer {
 	 * from the given entrance.
 	 */
 	public static boolean IsTunnelPossibleFrom(TunnelEntrance te) {
-		System.out.println(
-				">IsTunnelPossibleFrom(TunnelEntrance te1): checks if the tunnel is possible from the given entrance.\n");
 
-		System.out.println("<IsTunnelPossibleFrom(TunnelEntrance te1): Returns a boolean value.\n");
 		if (te == null || selected == null)
 			return false;
 		return level.IsTunnelPossibleBetween(te, selected);
@@ -109,7 +99,6 @@ abstract class LevelContainer {
 	 * the te and the selected entrance.
 	 */
 	public static void ConstructFrom(TunnelEntrance te) {
-		System.out.println(">>ConstructFrom(TunnelEntrance te1): Construct a tunnel from the first entrance.\n");
 		te.FullClear();
 		selected.FullClear();
 		Tunnel newTunnel = LevelContainer.level.GetTunnelBetween(te, selected);
@@ -174,7 +163,6 @@ abstract class LevelContainer {
 	 * current level.
 	 */
 	public static void Derailed(Car car) {
-		System.out.print("Derailed(Locomotive locomotive): tells the level that the train derailed");
 		Defeat();
 	}
 
@@ -183,7 +171,6 @@ abstract class LevelContainer {
 	 * leads to defeat.
 	 */
 	public static void Collided(Car car) {
-		System.out.print("Collided(Locomotive locomotive): tells the level that trains collided");
 		Defeat();
 	}
 
@@ -196,7 +183,6 @@ abstract class LevelContainer {
 	}
 
 	public static void Victory() {
-		System.out.print("Victory(): Method called whenever game is completed.\n");
 		Stop();
 	}
 
@@ -208,7 +194,6 @@ abstract class LevelContainer {
 	}
 
 	public static void Defeat() {
-		System.out.print("Defeat(): Method called whenever game is lost.");
 		Stop();
 	}
 	/**
@@ -244,7 +229,6 @@ abstract class LevelContainer {
 	}
 
 	public static void Tick() {
-		System.out.println("Tick");
 		level.Tick();
 	}
 }

@@ -83,14 +83,11 @@ class Fork extends Segment {
 	 * occupied by a car or not
 	 */
 	public boolean IsEmpty() {
-		System.out.println("\t>IsEmpty():  checks if all the cells of the segment are free.	");
 		for (Cell cell : this.cells) {
 			if (cell.IsOccupied()) {
-				System.out.println("\t<IsEmpty(): true if all the cells in the segment are empty.");
 				return false;
 			}
 		}
-		System.out.println("\t<IsEmpty():true if all the cells in the segment are empty.");
 		return true;
 	}
 
@@ -100,7 +97,6 @@ class Fork extends Segment {
 	 * controller which is controlled by the player.
 	 */
 	public void Select() {
-		System.out.print(">>Select(): Selects a path at a fork.");
 		if (IsEmpty()) {
 			selectorPath.SelectNextExit();
 

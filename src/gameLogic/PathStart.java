@@ -25,7 +25,6 @@ class PathStart implements CellLogic {
      * This method executes the logic of the first cell of the path.
      */
     public boolean LogicRequest(Car car) {
-        System.out.println("path set");
     	car.SetPath(path);
     	return true;
     }
