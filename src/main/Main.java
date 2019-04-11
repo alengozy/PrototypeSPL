@@ -41,7 +41,7 @@ public class Main {
 		System.out.println("Application Terminated.");
 		//test
 		
-		//TEST
+		//Test -B
 	}
 
 }
