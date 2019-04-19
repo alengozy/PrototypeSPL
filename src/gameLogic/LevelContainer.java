@@ -81,6 +81,16 @@ abstract class LevelContainer {
 		return selected != null;
 	}
 
+	public static void Step(int index) {
+		for(Locomotive l : level.trains) {
+			if(index == l.curIndex)
+				System.out.println("Stepping the specified locomotive");
+				l.Step();
+			
+		}
+		System.out.println("Locomotive was not found");
+		
+	}
 	/**
 	 * This method returns boolean value after checking if the tunnel is possible
 	 * from the given entrance.
@@ -231,8 +241,80 @@ abstract class LevelContainer {
 	public static void Tick() {
 		level.Tick();
 	}
+	
+	public static void getTypes() {
+		if(level.segments == null) {
+			System.out.println("No data");
+		return;
+		}
+		for(Segment s: level.segments) {
+			System.out.println(s.getClass().toString() + "\n");
+			
+		}
+		
+	}
+	
+	public static void getNames() {
+		if(level.segments == null) {
+			System.out.println("No data");
+			return;
+		}
+		for(Segment s: level.segments) {
+			System.out.println(s.id + "\n");
+		
+	}
+	
+	}
+	
+	public static void getSegments() {
+		if(level.segments == null) {
+			System.out.println("No data");
+			return;
+		}
+		for(Segment s: level.segments) {
+			System.out.println(s.getClass().toString() + " " + s.id + "\n");
+		
+		}
+		
 }
-
+	
+	public static void getTrains() {
+		if(level.trains == null) {
+			System.out.println("No data");
+			return;
+		}
+		for(Locomotive l: level.trains) {
+			System.out.println("train " + l.curIndex);
+			
+		}
+		
+	}
+	
+	public static void getAll() {
+		System.out.println("Printing the segment types, their identifiers and the paths with cells belonging to them.");
+		getFull();
+		System.out.println("Printing trains");
+		getTrains();
+		
+	}
+	public static void getFull() {
+		if(level.segments == null) {
+			System.out.println("No data");
+			return;
+		}
+		for(Segment s: level.segments) {
+			System.out.println(s.getClass().toString() + " " + s.id + "\n");
+				System.out.println("   path01" );
+					System.out.println("      cell01");
+					System.out.println("      cell02");
+					System.out.println("      cell03");
+				System.out.println("   path02" );
+					System.out.println("      cell01");
+					System.out.println("      cell02");
+					System.out.println("      cell03");
+	}
+}
+}
 class GameTick extends Thread {
 	public volatile boolean run = false;
 	private final int interval;
